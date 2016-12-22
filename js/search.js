@@ -13,7 +13,8 @@ function initLunr() {
     $.getJSON("/js/index.json")
         .done(function(index) {
             pagesIndex = index;
-
+            console.log("got the index");
+            console.log(pagesIndex);
             // Set up lunrjs by declaring the fields we use
             // Also provide their boost level for the ranking
             lunrIndex = lunr(function() {
