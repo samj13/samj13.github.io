@@ -62,6 +62,7 @@ function getQueryVariable(variable) {
 function initUI() {
     $searchResults = $("#search-results");
     var searchTerm = getQueryVariable('query');
+    console.log("init UI");
     if (searchTerm) {
         $searchResults.empty();
         var results = search(searchTerm);
@@ -90,7 +91,7 @@ function search(query) {
     //  {ref: "/section/page1", score: 0.2725657778206127}
     // Our result:
     //  {title:"Page1", href:"/section/page1", ...}
-
+    console.log("searching");
     //TODO - this processing should really be pre processing and stored in a JSON file with map structure
     var pagesIndexMap = pagesIndex.reduce(function(map, obj) {
         //TODO - fix this hacky addition of posts, probably on how hugo-lunr is being used
