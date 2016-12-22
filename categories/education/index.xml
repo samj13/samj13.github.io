@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>War On Broken</title>
+    <link>http://waronbroken.com/categories/education/index.xml</link>
+    <description>Recent content on War On Broken</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>All rights reserved - 2016</copyright>
+    <atom:link href="http://waronbroken.com/categories/education/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Cursive On Standardized Tests</title>
+      <link>http://waronbroken.com/post/cursive-on-standardized-tests/</link>
+      <pubDate>Mon, 19 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://waronbroken.com/post/cursive-on-standardized-tests/</guid>
+      <description>&lt;p&gt;WHY DO WE NEED TO SIGN THAT STUPID THING!?&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
