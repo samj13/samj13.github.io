@@ -13,8 +13,6 @@ function initLunr() {
     $.getJSON("/js/index.json")
         .done(function(index) {
             pagesIndex = index;
-            console.log("got the index");
-            console.log(pagesIndex);
             // Set up lunrjs by declaring the fields we use
             // Also provide their boost level for the ranking
             lunrIndex = lunr(function() {
@@ -36,6 +34,10 @@ function initLunr() {
             // Feed lunr with each file and let lunr actually index them
             pagesIndex.forEach(function(page) {
                 lunrIndex.add(page);
+            });
+        }).done(function() {
+            $(document).ready(function() {
+                initUI();
             });
         })
         .fail(function(jqxhr, textStatus, error) {
@@ -62,7 +64,6 @@ function getQueryVariable(variable) {
 function initUI() {
     $searchResults = $("#search-results");
     var searchTerm = getQueryVariable('query');
-    console.log("init UI");
     if (searchTerm) {
         $searchResults.empty();
         var results = search(searchTerm);
@@ -91,7 +92,6 @@ function search(query) {
     //  {ref: "/section/page1", score: 0.2725657778206127}
     // Our result:
     //  {title:"Page1", href:"/section/page1", ...}
-    console.log("searching");
     //TODO - this processing should really be pre processing and stored in a JSON file with map structure
     var pagesIndexMap = pagesIndex.reduce(function(map, obj) {
         //TODO - fix this hacky addition of posts, probably on how hugo-lunr is being used
@@ -152,21 +152,8 @@ function renderResults(results) {
         htmlResult.push('<time class="post-date" datetime="' + result.date + '">' + dateFormat(result.date, 'd mmm yyyy') + '</time>');
         htmlResult.push('</footer></article>');
         $searchResults.append(htmlResult.join(''));
-
-        /**
-        var $result = $("<li>");
-        $result.append($("<a>", {
-            href: result.href,
-            text: "» " + result.title
-        }));
-        $searchResults.append($result);
-        **/
     });
-    console.log($searchResults);
 }
 
+//This loads the JSON, checks to make sure the DOM is ready, then returns the search results
 initLunr();
-// Let's get started
-$(document).ready(function() {
-    initUI();
-});
